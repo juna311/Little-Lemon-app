@@ -1,8 +1,8 @@
 export default function DishCard({image, title, description, price, }) {
     return (
-        <article>
-            <img src={image}></img>
-            <div>
+        <article className="dish-card">
+            <img src={image} alt={title}></img>
+            <div className="title">
                 <h3>{title}</h3>
                 <span>{price}</span>
             </div>

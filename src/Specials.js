@@ -16,20 +16,24 @@ function handleClick(){
 
 export default function Specials() {
     return (
-        <section>
-            <div>
-                <h1>This weeks specials!</h1>
-                <Button onClick={handleClick} className="orderOnline">Order online</Button>
+        <section className="specials">
+            <div className="container">
+                <div className="specials-cta">
+                    <h2>This weeks specials!</h2>
+                    <Button onClick={handleClick} className="order-online">Order online</Button>
+                </div>
+                <div className="specials-grid">
+                    {dishes.map((dish, index) => (
+                        <DishCard
+                            key={index}
+                            title={dish.title}
+                            price={dish.price}
+                            description={dish.description}
+                            image={dish.image}
+                            />
+                    ))}
+                </div>
             </div>
-            {dishes.map((dish, index) => (
-                <DishCard
-                    key={index}
-                    title={dish.title}
-                    price={dish.price}
-                    description={dish.description}
-                    image={dish.image}
-                    />
-            ))}
         </section>
     );
 }
