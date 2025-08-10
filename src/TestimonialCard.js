@@ -5,13 +5,15 @@ export default function TestimonialCard({ rating, name, image, review }) {
   const stars = "★".repeat(rounded) + "☆".repeat(5 - rounded);
 
   return (
-    <article>
-      <span>{stars}</span>
-      <div>
-        <img src={image || defaultPhoto} alt={name} />
-        <h4>{name}</h4>
+    <article className="testimonial-card">
+      <span className="testimonial-card__rating" aria-label={`${rounded} out of 5 stars`}>{stars}</span>
+      <div className="testimonial-card__meta">
+        <div className="testimonial-card__photo">
+          <img src={image || defaultPhoto} alt={name} />
+        </div>
+        <h4 className="testimonial-card__name">{name}</h4>
       </div>
-      <p>{review}</p>
+      <p className="testimonial-card__review">{review}</p>
     </article>
   );
 }
