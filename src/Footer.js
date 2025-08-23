@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from './assets/Small-logo.png'
 
 export default function Footer({className}){
@@ -5,16 +6,18 @@ export default function Footer({className}){
        <footer className={className}>
             <div className='container'>
                 <div className='footer-img'>
+                    <Link to="/" className='logo-link'>
                     <img src={logo} alt="Little Lemon logo" />
+                    </Link>
                 </div>
                     <nav aria-label="Doormat navigation" className='footer-nav' >
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Menu</a></li>
-                            <li><a href="#">Reservations</a></li>
-                            <li><a href="#">Order Online</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><a href="#" onClick={(e) => e.preventDefault()}>About</a></li>
+                            <li><a href="#" onClick={(e) => e.preventDefault()}>Menu</a></li>
+                            <li><Link to="/bookings">Reservations</Link></li>
+                            <li><a href="#" onClick={(e) => e.preventDefault()}>Order Online</a></li>
+                            <li><a href="#" onClick={(e) => e.preventDefault()}>Login</a></li>
                         </ul>
                     </nav>
                 <div className='footer-address'>

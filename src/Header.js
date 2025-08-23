@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from './assets/Logo-lemon.jpg';
 
 export default function Header({className}){
@@ -5,14 +6,16 @@ export default function Header({className}){
         <header className={className}>
             <div className='container'>
                 <nav aria-label="Main navigation">
-                    <img src={logo} alt="Little Lemon logo" />
+                    <Link to="/" className='logo-link'>
+                        <img src={logo} alt="Little Lemon logo" />
+                    </Link>
                     <ul>
-                        <li><a href='#'>Home</a></li>
-                        <li><a href='#'>About</a></li>
-                        <li><a href='#'>Menu</a></li>
-                        <li><a href='#'>Reservations</a></li>
-                        <li><a href='#'>Order Online</a></li>
-                        <li><a href='#'>Login</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>About</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Menu</a></li>
+                        <li><Link to="/bookings">Reservations</Link></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Order Online</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Login</a></li>
                     </ul>
                 </nav>
             </div>

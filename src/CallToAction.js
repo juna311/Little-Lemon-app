@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import Button from './Button.js'
 import heroImg from './assets/hero.jpg';
 
-function handleClick() {
-  console.log("Navigate to reservations page");
-}
-
 export default function CallToAction() {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/bookings');
+  }
+
   return (
     <section className='call-to-action'>
       <div className='container'>
