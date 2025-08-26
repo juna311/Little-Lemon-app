@@ -1,8 +1,8 @@
+// Remove any react-router-dom mocks from here
 import { render, screen } from "@testing-library/react";
 import BookingForm from './BookingForm';
 
 test('Renders the BookingForm heading', () => {
-
     const mockProps = {
         availableTimes: ["17:00", "18:00", "19:00"],
         date: '',

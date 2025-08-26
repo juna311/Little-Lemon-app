@@ -7,6 +7,7 @@ import CustomersSay from './CustomersSay';
 import About from './About';
 import Footer from './Footer';
 import BookingPage from './BookingPage';
+import ConfirmedBooking from './ConfirmedBooking';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             </main>
           } />
             <Route path="/bookings" element={<BookingPage />} />
+            <Route path="/booking-confirmed" element={<ConfirmedBooking />} />
           </Routes>
           <Footer className='footer' />
       </div>

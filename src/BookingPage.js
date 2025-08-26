@@ -1,16 +1,17 @@
 import React, { useState, useReducer} from 'react';
 import BookingForm from './BookingForm';
-
+import { fetchAPI, submitAPI } from './api'; 
 
 export function initializeTimes() {
-    return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+    const today = new Date();
+    return fetchAPI(today); 
 }
 
 export function updateTimes(state, action) {
     switch (action.type) {
         case 'UPDATE_TIMES':
-            // For now, return the same times regardless of date
-            return state;
+            const selectedDate = new Date(action.payload); 
+            return fetchAPI(selectedDate);
         default:
             return state;
     }

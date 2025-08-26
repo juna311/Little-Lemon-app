@@ -1,8 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { submitAPI } from './api.js';
 import Button from './Button.js';
 
 export default function BookingForm({ availableTimes, date, time, guests, occasion, dispatch, setDate, setTime, setGuests, setOccasion }) {
-
 
     function handleDateChange(e) {
         const newDate = e.target.value;
@@ -21,9 +22,24 @@ export default function BookingForm({ availableTimes, date, time, guests, occasi
     function handleOccasion(e) {
         setOccasion(e.target.value);
     }
+
+    const navigate = useNavigate();
+
     function handleSubmit(e) {
         e.preventDefault();
-        alert(`Date: ${date}, Time: ${time}, Guests: ${guests}, Occasion: ${occasion}`)
+        
+        const formData = {
+            date,
+            time,
+            guests,
+            occasion
+        };
+        
+        if (submitAPI(formData)) {
+            navigate('/booking-confirmed', { 
+                state: { bookingData: formData } 
+            });
+        }
     }
 
     const isFormValid = date && time && guests;
@@ -32,7 +48,7 @@ export default function BookingForm({ availableTimes, date, time, guests, occasi
         <form onSubmit={handleSubmit}  className='booking-form'
         >
             <label htmlFor="res-date">Choose date</label>
-            <input type="date" id="res-date" value={date} onChange={handleDateChange}/>
+            <input type="date" id="res-date" value={date} onChange={handleDateChange} min={new Date().toISOString().split('T')[0]}/>
             
             <label htmlFor="res-time">Choose time</label>
             <select id="res-time" value={time} onChange={handleTimeChange}>
